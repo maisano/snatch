@@ -3,10 +3,14 @@ import os
 from setuptools import setup, find_packages
 
 
-# utility fn to read files
+here = os.path.abspath(os.path.dirname(__file__))
+
 def read(fname):
-    with open(fname) as f:
-        contents = f.read()
+    try:
+        with open(os.path.join(here, fname)) as f:
+            contents = f.read()
+    except IOError:
+        contents = ''
     return contents
 
 
